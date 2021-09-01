@@ -58,6 +58,20 @@
           </div>
         </div>
 
+        <!-- Pokemon rareté -->
+        <div class="form-group">
+          <label for="rarete">Nom</label>
+          <input type="text" class="form-control" id="rarete"
+            required
+            pattern="^[\*]{1,5}$"
+            [(ngModel)]= "pokemon.rarete" name="rarete"
+            #rarete="ngModel"
+          >
+          <div [hidden]="rarete.valid || rarete.pristine" class="card-panel red accent-1">
+            la rareté doit être des étoiles entre 1 et 5 étoiles.
+          </div>
+        </div>
+
         <form action="" class="form-group">
           <label for="types">Types</label>
           <p *ngFor="let type of types">
