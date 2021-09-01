@@ -47,6 +47,19 @@ export class PokemonService {
     );
   }
 
+  addPokemon(pokemon: Pokemon): Observable<Pokemon> {
+    pokemon.id = null;
+
+    const httpOptions ={
+      headers: new HttpHeaders({'Content-type': 'application/json'})
+    };
+
+    return this.http.post<Pokemon>(this.pokemonUrl, pokemon, httpOptions).pipe(
+      tap(_=> this.log(`added pokemon id=${pokemon.id}`)),
+      catchError(this.handleError<any>(`Ajout pokemon non fonctionnel`))
+    );
+  }
+
   editPokemon(pokemon: Pokemon): Observable<Pokemon> {
     const url = `${this.pokemonUrl}/${pokemon.id}`;
 

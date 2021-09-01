@@ -21,18 +21,37 @@ export class FormPokemonComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('yes ça fonctionne');
+    // si id pokemon non null et >0 => entrer en mode update
+    if(this.pokemon.id) {
+      this.updatePokemon();
+    } else {
+      this.addPokemon();
+    }
+
+  }
+
+  addPokemon(): void {
+    this.pokemonService.addPokemon(this.pokemon).subscribe(response => {
+      // ajout pokémon réussi / récuperer le nouveau id pour la redirection
+      console.log(response);
+      this.pokemon = response;
+      let link = ['/pokemon', this.pokemon.id];
+      this.router.navigate(link);
+    });
+  }
+
+  updatePokemon(): void {
     let link = ['/pokemon', this.pokemon.id];
     this.pokemonService.updatePokemon(this.pokemon).subscribe(response => console.log('it work'));
     this.router.navigate(link);
   }
 
-  // méthose appelé lorsque l'utiilisateur ajoutte ou retiree un type au pokémon
+  // méthose appelé lorsque l'utilisateur ajoutte ou retire un type au pokémon
   selectType($event: any, type: string) {
     let checked = $event.target.checked;
     if(checked) {
       this.pokemon.types.push(type);
-    }else {
+    } else {
       let index = this.pokemon.type.indexOf(type);
       if(index > -1) {
         this.pokemon.type.splice(index, 1);

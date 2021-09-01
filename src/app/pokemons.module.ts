@@ -11,6 +11,7 @@ import { FormPokemonComponent } from './pokemons/edit-pokemon/form-pokemon.compo
 import { SearchPokemonComponent } from "./pokemons/search-pokemons/search-pokemons.component";
 import { FormsModule } from '@angular/forms';
 import { PokemonRareteColorPipe } from "./pokemons/pipes/pokemon-rarete-color.pipe";
+import { CreatePokemonComponent } from "./pokemons/create-pokemon/create-pokemon.component";
 
 import { PokemonService } from './pokemons.service';
 
@@ -20,6 +21,7 @@ import { PokemonRoutingModule } from "./pokemons/pokemons-routing.module";
   declarations: [
     DetailPokemonComponent,
     EditPokemonComponent,
+    CreatePokemonComponent,
     FormPokemonComponent,
     PokemonsComponent,
     SearchPokemonComponent,

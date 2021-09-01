@@ -1,5 +1,5 @@
 export class Pokemon {
-    id: number;
+    id: number | null;
     hp: number;
     cp: number;
     name: string;
@@ -13,7 +13,7 @@ export class Pokemon {
         this.hp = 0;
         this.cp = 0;
         this.name = 'noName';
-        this.picture = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png';
+        this.picture = 'https://';
         this.types = ['plante'];
         this.rarete = '*';
         this.created = new Date();
