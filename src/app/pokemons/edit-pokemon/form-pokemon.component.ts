@@ -21,13 +21,43 @@ export class FormPokemonComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // si id pokemon non null et >0 => entrer en mode update
-    if(this.pokemon.id) {
-      this.updatePokemon();
-    } else {
-      this.addPokemon();
+    if(this.isFormValid()) {
+      // si id pokemon non null et >0 => entrer en mode update
+      if(this.pokemon.id) {
+        this.updatePokemon();
+      } else {
+        this.addPokemon();
+      }
     }
+  }
 
+  isFormValid(): boolean {
+    let nameRegex  = new RegExp('^[a-zA-Zàéèç]{1,25}$');
+    let hpRegex  = new RegExp('^[0-9]{1,3}$');
+    let cpRegex  = new RegExp('^[0-9]{1,3}$');
+    let imageRegex  = new RegExp('https?:\/\/');
+    let rareteRegex  = new RegExp('^[\*]{1,5}$');
+
+
+    if(!nameRegex.test(this.pokemon.name))
+      return false;
+
+    if(!hpRegex.test(this.pokemon.hp))
+      return false;
+
+    if(!cpRegex.test(this.pokemon.cp))
+      return false;
+
+    if(!imageRegex.test(this.pokemon.picture))
+      return false;
+
+    if(!rareteRegex.test(this.pokemon.rarete))
+      return false;
+
+    if(this.pokemon.types.length > 3 || this.pokemon.types.length <= 0)
+      return false;
+
+    return true;
   }
 
   addPokemon(): void {
@@ -46,15 +76,15 @@ export class FormPokemonComponent implements OnInit {
     this.router.navigate(link);
   }
 
-  // méthose appelé lorsque l'utilisateur ajoutte ou retire un type au pokémon
+  // méthode appelé lorsque l'utilisateur ajoute ou retire un type au pokémon
   selectType($event: any, type: string) {
     let checked = $event.target.checked;
     if(checked) {
       this.pokemon.types.push(type);
     } else {
-      let index = this.pokemon.type.indexOf(type);
+      let index = this.pokemon.types.indexOf(type);
       if(index > -1) {
-        this.pokemon.type.splice(index, 1);
+        this.pokemon.types.splice(index, 1);
       }
     }
   }
