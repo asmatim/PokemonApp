@@ -1,5 +1,5 @@
 import { Pokemon } from './pokemon';
-  
+
 export const POKEMONS: Pokemon[] = [
     {
         id: 1,
@@ -8,6 +8,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 5,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
         types: ["Plante", "Poison"],
+        rarete: "*",
         created: new Date()
     },
     {
@@ -17,6 +18,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 6,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/004.png",
         types: ["Feu"],
+        rarete: "*",
         created: new Date()
     },
     {
@@ -26,6 +28,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 4,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/007.png",
         types: ["Eau"],
+        rarete: "**",
         created: new Date()
     },
     {
@@ -35,6 +38,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 2,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/013.png",
         types: ["Insecte", "Poison"],
+        rarete: "**",
         created: new Date()
     },
     {
@@ -44,6 +48,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 7,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/016.png",
         types: ["Normal", "Vol"],
+        rarete: "****",
         created: new Date()
     },
     {
@@ -53,6 +58,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 6,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/019.png",
         types: ["Normal"],
+        rarete: "*",
         created: new Date()
     },
     {
@@ -62,6 +68,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 5,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/021.png",
         types: ["Normal", "Vol"],
+        rarete: "***",
         created: new Date()
     },
     {
@@ -71,6 +78,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 4,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/023.png",
         types: ["Poison"],
+        rarete: "**",
         created: new Date()
     },
     {
@@ -80,6 +88,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 7,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/025.png",
         types: ["Electrik"],
+        rarete: "*****",
         created: new Date()
     },
     {
@@ -89,6 +98,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 3,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/027.png",
         types: ["Normal"],
+        rarete: "*****",
         created: new Date()
     },
     {
@@ -98,6 +108,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 5,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/035.png",
         types: ["Fée"],
+        rarete: "**",
         created: new Date()
     },
     {
@@ -107,6 +118,7 @@ export const POKEMONS: Pokemon[] = [
         cp: 8,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
         types: ["Feu"],
+        rarete: "***",
         created: new Date()
     }
 ];
