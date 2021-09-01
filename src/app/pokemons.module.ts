@@ -10,6 +10,7 @@ import { EditPokemonComponent } from './pokemons/edit-pokemon/edit-pokemon.compo
 import { FormPokemonComponent } from './pokemons/edit-pokemon/form-pokemon.component';
 import { SearchPokemonComponent } from "./pokemons/search-pokemons/search-pokemons.component";
 import { FormsModule } from '@angular/forms';
+import { PokemonRareteColorPipe } from "./pokemons/pipes/pokemon-rarete-color.pipe";
 
 import { PokemonService } from './pokemons.service';
 
@@ -23,6 +24,7 @@ import { PokemonRoutingModule } from "./pokemons/pokemons-routing.module";
     PokemonsComponent,
     SearchPokemonComponent,
     PokemonTypeColorPipe,
+    PokemonRareteColorPipe,
     BorderCardDirective,
     BackgroundCardDirective
   ],

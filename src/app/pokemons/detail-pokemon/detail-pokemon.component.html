@@ -29,7 +29,9 @@
                             </tr>
                             <tr>
                               <td>Rareté</td>
-                              <td><strong>{{ pokemon.rarete }}</strong></td>
+                              <td>
+                                <span class=" {{ pokemon.rarete | pokemonRareteColor }}">{{ pokemon.rarete }}</span>
+                              </td>
                             </tr>
                             <tr>
                                 <td>Date de création</td>
