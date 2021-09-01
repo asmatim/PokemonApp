@@ -64,7 +64,7 @@ export class PokemonService {
     const url = `${this.pokemonUrl}/${pokemon.id}`;
 
     return this.http.put<Pokemon>(url, pokemon).pipe(
-      catchError(this.handleError<Pokemon>(`Erreur update pokemon id : ${pokemon.id}`))
+      catchError(this.handleError<any>(`Erreur update pokemon id : ${pokemon.id}`))
     );
   }
 
@@ -76,6 +76,15 @@ export class PokemonService {
     return this.http.put<Pokemon>(this.pokemonUrl, pokemon, httpOptions).pipe(
       tap(_=> this.log(`updated pokemon id=${pokemon.id}`)),
       catchError(this.handleError<any>(`update pokemon non fonctionnel`))
+    );
+  }
+
+  deletePokemon(id: number): Observable<Pokemon> {
+    const url = `${this.pokemonUrl}/${id}`;
+
+    return this.http.delete<Pokemon>(url).pipe(
+      tap(_=> this.log(`removing pokemon id=${id}`)),
+      catchError(this.handleError<any>(`problème suppression pokemon id: ${id}`))
     );
   }
 
