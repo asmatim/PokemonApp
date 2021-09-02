@@ -88,15 +88,18 @@ export class PokemonService {
     );
   }
 
-  searchPokemon(term: string): Observable<Pokemon[]> {
-    if (!term.trim) {
-      return of([]);
+  searchPokemon(searchParams: any): Observable<Pokemon[]> {
+    console.log(searchParams);
+    if (searchParams.name.trim() || searchParams.type.trim() || searchParams.rarete > 0) {
+      //return of([]);
+      console.log("searching");
+      return this.http.get<Pokemon[]>(`${this.pokemonUrl}/?name=${searchParams.name}&types=${searchParams.type}&rarete=${searchParams.rarete}`).pipe(
+        tap(_=> this.log(`found pokemons matching "${searchParams}"`)),
+        catchError(this.handleError(`searchPokemons`, []))
+      )
     }
-
-    return this.http.get<Pokemon[]>(`${this.pokemonUrl}/?name=${term}`).pipe(
-      tap(_=> this.log(`found pokemons matching "${term}"`)),
-      catchError(this.handleError(`searchPokemons`, []))
-    )
+    console.log("nothing to search");
+    return of([]);
   }
 
   // Retourne le pokémon avec l'identifiant passé en param

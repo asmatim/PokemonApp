@@ -16,7 +16,7 @@ import { Pokemon } from "../donnes-pokemons/pokemon";
 export class SearchPokemonComponent implements OnInit {
 
     // cette var est un observable
-    private searchTerms = new Subject<string>();
+    private searchTerms = new Subject<any>();
     pokemons: any;
 
     constructor(private router: Router, private pokemonService: PokemonService) {
@@ -29,12 +29,18 @@ export class SearchPokemonComponent implements OnInit {
         // Ignorer la recherche en cours si la req est la précédente
         distinctUntilChanged(),
         // On retourne la liste des résultats correspondant aux termes de la recherche
-        switchMap((term: string) => this.pokemonService.searchPokemon(term)),
+        switchMap((searchParams: any) => this.pokemonService.searchPokemon(searchParams)),
       );
     }
 
-    search(term: string): void {
-      this.searchTerms.next(term);
+    search(term: string, rarete: string , type: string): void {
+      let searchParams = {
+        name: term,
+        rarete: rarete,
+        type: type
+      };
+
+      this.searchTerms.next(searchParams);
     }
 
     goToDetail(pokemon: Pokemon): void {

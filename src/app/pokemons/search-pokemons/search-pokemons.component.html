@@ -2,11 +2,20 @@
   <div class="col s12 m6 offset-m3">
     <div class="card">
       <div class="card-content">
-        <input type="text" #searchBox (keyup)="search(searchBox.value)" placeholder="Rechercher un pokémon">
+        <input type="text" #nameSearchBox (keyup)="search(nameSearchBox.value, rareteSearchBox.value, typeSearchBox.value)" placeholder="nom">
+        <select class="browser-default" #rareteSearchBox (change)="search(nameSearchBox.value, rareteSearchBox.value, typeSearchBox.value)">
+          <option value="0" selected>Selectionner rareté</option>
+          <option value="1">*</option>
+          <option value="2">**</option>
+          <option value="3">***</option>
+          <option value="4">****</option>
+          <option value="5">*****</option>
+        </select>
+        <input type="text" #typeSearchBox (keyup)="search(nameSearchBox.value, rareteSearchBox.value, typeSearchBox.value)" placeholder="type">
       </div>
 
       <div class="collection">
-        <a *ngFor="let pokemon of pokemons | async"class="collection-item" (click)="goToDetail(pokemon)">
+        <a *ngFor="let pokemon of pokemons | async" class="collection-item" (click)="goToDetail(pokemon)">
           {{ pokemon.name }}
         </a>
       </div>
