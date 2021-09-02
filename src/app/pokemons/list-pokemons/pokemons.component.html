@@ -2,6 +2,14 @@
 <div class="container">
     <div class="row">
       <search-pokemons></search-pokemons>
+    </div>
+    <div class="row">
+      <div class="col right">
+        <button class="waves-effect waves-light btn-small" (click)="sortPokemonsName()">Tri par nom</button>
+        <button class="waves-effect waves-light btn-small" (click)="sortPokemonsRarete()">Tri par rareté</button>
+      </div>
+    </div>
+    <div class="row">
         <div *ngFor='let pokemon of pokemons' class="col s6 m4">
             <div class="card horizontal" (click)="selectPokemon(pokemon)" pkmnBorderCard pkmnBackgroundCard>
                 <div class="card-image">

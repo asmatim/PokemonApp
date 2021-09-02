@@ -29,4 +29,12 @@ export class PokemonsComponent implements OnInit {
         let link = ['/pokemon', pokemon.id];
         this.router.navigate(link);
     }
+
+    sortPokemonsName() {
+      this.pokemons.sort((a, b) => (a.name > b.name) ? 1 : -1)
+    }
+
+    sortPokemonsRarete() {
+      this.pokemons.sort((a, b) => (a.rarete < b.rarete) ? 1 : -1)
+    }
 }
