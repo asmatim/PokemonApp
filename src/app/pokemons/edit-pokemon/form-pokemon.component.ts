@@ -36,7 +36,7 @@ export class FormPokemonComponent implements OnInit {
     let hpRegex  = new RegExp('^[0-9]{1,3}$');
     let cpRegex  = new RegExp('^[0-9]{1,3}$');
     let imageRegex  = new RegExp('https?:\/\/');
-    let rareteRegex  = new RegExp('^[\*]{1,5}$');
+    let rareteRegex  = new RegExp('^[1-5]$');
 
 
     if(!nameRegex.test(this.pokemon.name))

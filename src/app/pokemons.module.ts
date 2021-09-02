@@ -16,6 +16,7 @@ import { CreatePokemonComponent } from "./pokemons/create-pokemon/create-pokemon
 import { PokemonService } from './pokemons.service';
 
 import { PokemonRoutingModule } from "./pokemons/pokemons-routing.module";
+import { PokemonRareteStarsPipe } from "./pokemons/pipes/pokemon-rarete-stars.pipe";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PokemonRoutingModule } from "./pokemons/pokemons-routing.module";
     SearchPokemonComponent,
     PokemonTypeColorPipe,
     PokemonRareteColorPipe,
+    PokemonRareteStarsPipe,
     BorderCardDirective,
     BackgroundCardDirective
   ],

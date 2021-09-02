@@ -30,6 +30,7 @@
             Les points de vie du pokémon sont compris entre 0 et 999.
           </div>
         </div>
+
         <!-- Pokemon dégâts -->
         <div class="form-group">
           <label for="cp">Dégâts</label>
@@ -61,12 +62,15 @@
         <!-- Pokemon rareté -->
         <div class="form-group">
           <label for="rarete">Rareté</label>
-          <input type="text" class="form-control" id="rarete"
-            required
-            pattern="^[\*]{1,5}$"
-            [(ngModel)]= "pokemon.rarete" name="rarete"
-            #rarete="ngModel"
-          >
+          <select  required pattern="^[1-5]$" [(ngModel)]= "pokemon.rarete" name="rarete" #rarete="ngModel" id="rarete" class="browser-default">
+            <option value="0" disabled selected>Selectionner rareté</option>
+            <option value="1">*</option>
+            <option value="2">**</option>
+            <option value="3">***</option>
+            <option value="4">****</option>
+            <option value="5">*****</option>
+          </select>
+
           <div [hidden]="rarete.valid || rarete.pristine" class="card-panel red accent-1">
             la rareté doit être des étoiles entre 1 et 5 étoiles.
           </div>

@@ -5,7 +5,7 @@ export class Pokemon {
     name: string;
     picture: string;
     types: Array<string>;
-    rarete: string;
+    rarete: number;
     created: Date;
 
     constructor() {
@@ -14,8 +14,8 @@ export class Pokemon {
         this.cp = 0;
         this.name = 'noName';
         this.picture = 'https://';
-        this.types = ['plante'];
-        this.rarete = '*';
+        this.types = ['Plante'];
+        this.rarete = 0;
         this.created = new Date();
     }
 }
