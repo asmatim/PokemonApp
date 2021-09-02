@@ -2,7 +2,8 @@
   <div class="nav-wrapper teal">
     <a href="#" class="brand-logo center">Consultant de pokémons</a>
     <ul id="nav-mobile" class="right">
-      <li><a (click)="goToCreate()">Create Pokemon</a></li>
+      <li><a (click)="goToCreate()" *ngIf="authService.isUserLogged">Create Pokemon</a></li>
+      <li><a (click)="logout()" *ngIf="authService.isUserLogged">Se déconnecter</a></li>
     </ul>
   </div>
 </nav>
